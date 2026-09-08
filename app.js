@@ -150,7 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ================= SCROLL REVEAL ================= */
 
-    const revealTargets = document.querySelectorAll(".reveal");
+    const revealTargets = document.querySelectorAll(
+        ".reveal, .footer .footer-brand, .footer .footer-col, .footer .footer-social, .footer .footer-bottom"
+    );
 
     if (revealTargets.length) {
         const prefersReducedMotion = window.matchMedia(
@@ -182,18 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ================= CONTACT FORM ================= */
-
-    const quoteForm = document.getElementById("quoteForm");
-    const formSuccess = document.getElementById("formSuccess");
-
-    if (quoteForm && formSuccess) {
-        quoteForm.addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            formSuccess.hidden = false;
-            quoteForm.reset();
-        });
-    }
 
     /* ================= CURRENT YEAR ================= */
 
