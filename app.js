@@ -183,6 +183,30 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /* ================= FAQ ACCORDION ================= */
+
+    document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+            const item = question.closest(".faq-item");
+            const answer = document.getElementById(question.getAttribute("aria-controls"));
+            const isOpen = question.getAttribute("aria-expanded") === "true";
+
+            document.querySelectorAll(".faq-item").forEach((otherItem) => {
+                const otherQuestion = otherItem.querySelector(".faq-question");
+                const otherAnswer = document.getElementById(otherQuestion.getAttribute("aria-controls"));
+                otherItem.classList.remove("is-open");
+                otherQuestion.setAttribute("aria-expanded", "false");
+                otherAnswer.hidden = true;
+            });
+
+            if (!isOpen) {
+                item.classList.add("is-open");
+                question.setAttribute("aria-expanded", "true");
+                answer.hidden = false;
+            }
+        });
+    });
+
     /* ================= CONTACT FORM ================= */
 
     /* ================= CURRENT YEAR ================= */
